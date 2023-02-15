@@ -32,6 +32,7 @@ else:
     wb.save('./unmerged.xlsx')
     messagebox.showinfo("완료", "unmerged.xlsx로 저장했습니다.")
     wb.close()
+    
 quit()
 
 
