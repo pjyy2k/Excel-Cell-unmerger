@@ -35,6 +35,7 @@ else:
     wb.save(dirpath+'/Unmerged.xlsx')
     messagebox.showinfo("완료", "원본폴더에 Unmerged.xlsx로 저장했습니다.")
     wb.close()
+    
 quit()
 
 
