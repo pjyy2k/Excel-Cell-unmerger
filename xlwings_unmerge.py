@@ -1,6 +1,7 @@
 #import pyi_splash
 #pyi_splash.close()
 #위 코드는 pyinstaller로 build시 주석해제
+#pyinstaller xlwings_unmerge.py --splash "./splash.png" -F -w
 
 import xlwings as xw
 from tkinter import filedialog
