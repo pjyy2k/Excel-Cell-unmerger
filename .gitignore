@@ -1,3 +1,6 @@
 build/
 .vscode
 VENV-unmerge-cell
+.*
+temp
+test.py
