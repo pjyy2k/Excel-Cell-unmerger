@@ -1,8 +1,10 @@
-print('로딩중..........')
+import pyi_splash
+pyi_splash.close()
+
 import xlwings as xw
 from tkinter import filedialog
 from tkinter import messagebox
-from tqdm import tqdm 
+from tqdm.tk import tqdm_tk
 import os
 
 def loadfile():
@@ -16,7 +18,7 @@ def loadfile():
         return '' 
     else:
         return files[0]
-        
+
 
 list_file = []                                          #파일 목록 담을 리스트 생성
 print('파일을 선택창을 띄웁니다.')
@@ -30,9 +32,9 @@ else:
     file_path = loadedfile
     wb=xw.Book(file_path)
     wb.activate
-    for sheet in tqdm(wb.sheets,desc = "전체 진행률"):
+    for sheet in tqdm_tk(wb.sheets,desc = "전체 진행률"):
         rngAll = sheet.used_range
-        for rngC in tqdm(rngAll,desc = sheet.name + " 작업중"):
+        for rngC in tqdm_tk(rngAll,desc = sheet.name + " 작업중"):
             if rngC.merge_cells:
                 workrange = rngC.merge_area
                 rngC.unmerge()
@@ -41,6 +43,5 @@ else:
     wb.save(dirpath+'/Unmerged.xlsx')
     messagebox.showinfo("완료", "원본폴더에 Unmerged.xlsx로 저장했습니다.")
     wb.close()
-quit()
 
 
