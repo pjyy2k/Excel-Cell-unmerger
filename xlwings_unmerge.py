@@ -1,11 +1,13 @@
-import pyi_splash
-pyi_splash.close()
+#import pyi_splash
+#pyi_splash.close()
+#위 코드는 pyinstaller로 build시 주석해제
 
 import xlwings as xw
 from tkinter import filedialog
 from tkinter import messagebox
 from tqdm.tk import tqdm_tk
 import os
+App = xw.App(visible=False)
 
 def loadfile():
     """파일을 불러오는 함수
@@ -43,5 +45,4 @@ else:
     wb.save(dirpath+'/Unmerged.xlsx')
     messagebox.showinfo("완료", "원본폴더에 Unmerged.xlsx로 저장했습니다.")
     wb.close()
-
-
+    App.kill()
